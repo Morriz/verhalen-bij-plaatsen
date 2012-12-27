@@ -8,9 +8,14 @@
         "url":"git://github.com/morriz/verhalen-bij-plaatsen.git"
     },
     "dependencies":{
+        "express":"",
+        "redis":"",
         "node-redis":"",
         "connect-redis":"",
-        "redis":""
+        "socket.io":"",
+        "jsonrpc2":"",
+        "xml2js":"",
+        "restler":""
     },
     "keywords":[
         "redis",
