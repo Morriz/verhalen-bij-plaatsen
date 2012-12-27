@@ -10,10 +10,15 @@ $(function(){
   var xtiles = 3;
   var ytiles = 4;
 
+  // Example event listeners
+  canvas.bind( "select", function ( event, url ) { console.log( url ); } );
+  canvas.bind( "over", function ( event, url ) { console.log( url ); } );
+
   /* No touchy */
   var tiles = [];
   var xtilesize = 100/xtiles;
   var ytilesize = 100/ytiles
+  var interaction = false;
 
   function fill ()
   {
@@ -32,9 +37,10 @@ $(function(){
     }
   }
 
-  setInterval( function () { fill(); }, 10000 );
+  setInterval( function () { if ( !interaction ) fill(); }, 10000 );
 
   setInterval( function () {
+    if ( interaction ) return;
     var tile = tiles[Math.floor(Math.random()*tiles.length)];
     var url = images[Math.floor(Math.random()*images.length)];
     tile.fadeTo( 100, 0, function () {
@@ -53,8 +59,11 @@ $(function(){
       top: ypos + "%",
       left: xpos + "%",
       width: xtilesize + "%",
-      height: ytilesize + "%"
+      height: ytilesize + "%",
+      cursor: "pointer"
     } );
+    img.click( function() { canvas.trigger( 'select', [url] ) } );
+    img.hover( function() { canvas.trigger( 'over', [url] ) } );
     tiles.push( img );
     canvas.append(img);
     setTimeout( function () { img.fadeTo( 600, 1 ); }, Math.random()*500 );
