@@ -7,12 +7,15 @@ $(function(){
 
   /* Config */
   var canvas = $("#tiles");
-  var xtiles = 3;
+  var xtiles = 4;
   var ytiles = 4;
 
   // Example event listeners
-  canvas.bind( "select", function ( event, url ) { console.log( url ); } );
-  canvas.bind( "over", function ( event, url ) { console.log( url ); } );
+  //canvas.bind( "select", function ( event, url ) { console.log( url ); } );
+  //canvas.bind( "over", function ( event, url ) { console.log( url ); } );
+
+  // Trigger refresh example
+  //canvas.trigger( "refresh" );
 
   /* No touchy */
   var tiles = [];
@@ -33,14 +36,14 @@ $(function(){
     for( var index = 0; index < ((100/xtilesize)*(100/ytilesize)); index++ ) {
       var xpos = index%(100/xtilesize) * xtilesize;
       var ypos = Math.floor(index/(100/xtilesize)) * ytilesize;
-      renderTile( xpos, ypos );
+      renderTile( xpos, ypos, index );
     }
   }
 
-  setInterval( function () { if ( !interaction ) fill(); }, 10000 );
+  /*
+  setInterval( function () { fill(); }, 10000 );
 
   setInterval( function () {
-    if ( interaction ) return;
     var tile = tiles[Math.floor(Math.random()*tiles.length)];
     var url = images[Math.floor(Math.random()*images.length)];
     tile.fadeTo( 100, 0, function () {
@@ -48,8 +51,12 @@ $(function(){
       tile.fadeTo( 700, 1 );
     } );
   }, 2000 );
+  */
 
-  function renderTile( xpos, ypos  )
+  // Setup refresh event
+  canvas.bind( "refresh", function () { fill(); } );
+
+  function renderTile( xpos, ypos, index )
   {
     var url = images[Math.floor(Math.random()*images.length)];
     var img = $("<div></div>").css( {
@@ -66,7 +73,8 @@ $(function(){
     img.hover( function() { canvas.trigger( 'over', [url] ) } );
     tiles.push( img );
     canvas.append(img);
-    setTimeout( function () { img.fadeTo( 600, 1 ); }, Math.random()*500 );
+    if ( index !==0 && !index ) index = Math.random()*5;
+    setTimeout( function () { img.fadeTo( 600, 1 ); }, index*200 );
   }
 
   fill();
