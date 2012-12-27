@@ -2,9 +2,85 @@
 <html>
     <head>
         <title></title>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="css/bootstrap/js/bootstrap.min.js"></script>
+        <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="js/default.js"></script>
+        <link href="css/style.css" rel="stylesheet" />
+        <script src="js/tiles.js"></script>
     </head>
     <body>
+        <div id="tiles"></div>
 
+        <div id="header">
+            <span class="row">
+                <span class="span6 offset3">
+                    <h2 >Verhalen bij plaatsen</h2>
+                </span>
+                <span class="span3 hide" id="account"><br />                  
+                    <div class="btn-group">
+                        <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i><span id="userName">User</span></a>
+                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                        <!--li><a href="#"><i class="icon-pencil"></i> Edit</a></!--li-->
+                        <li><a href="#" onclick="editUser();"><i class="icon-pencil"></i>Gegevens aanpassen</a></li>
+                        </ul>
+                    </div>
+                </span>
+            </span>
+        </div>
+
+        <div id="register" class="hide" >
+            <form id="registerForm">
+                <span class="row ">
+                    <span class="span6 offset3">
+                        <div class="hero-unit ">
+                            Wat is uw naam:<br />
+                            <input type="text" name="name"  value="Karel"/><br />
+                            Wat is uw email:<br />
+                            <input type="text" name="email" /><br />
+                            Wat is uw geboortedatum:<br />
+                            <input type="text" class="date-input-day" maxlength="2" name="birth-day" />/
+                            <input type="text" class="date-input-month" maxlength="2" name="birth-month" />/
+                            <input type="text" class="date-input-year" maxlength="4" name="birth-year" /><br />
+                            Wat is uw geboorteplaats:<br />
+                            <input type="text" name="birth-place" value="Utrecht"/><br />
+                            Wat is uw huidige woonplaats:<br />
+                            <input type="text" name="city" /><br />
+                            <br />
+                            <a href="#" onclick="register();" class="btn btn-primary btn-large">Klaar</a>
+                        </div>
+                    </span>
+                </span>
+                
+            </form>
+
+        </div>
+
+        <div id="main" class="hide">
+            
+        </div>
+
+        <div id="TileDialog" class="hide hero-unit">
+                
+            <span class="row">
+                <span class="span4">
+                    <ul id="stories"><li class="nostoriesyet">Er zijn nog geen verhalen bij deze foto</li></ul>
+                </span>
+                <span class="span6">
+                    <img class="thumb pull-right" src=""/>
+                    <form id="storyForm">
+                        <p>Vertel uw verhaal:</p>
+                        <input type="text" name="title" placeholder="Titel"/><br />
+                        <textarea rows="10" cols="100" class="newStory" name="newStory" placeholder="Schrijf hier uw verhaal"></textarea><br />
+                        Wanneer speelde dit verhaal zich af ?<br />
+                        <input type="text" class="date-input-day" maxlength="2" name="story-day" value="27"/>/
+                        <input type="text" class="date-input-month" maxlength="2" name="story-month" value="12"/>/
+                        <input type="text" class="date-input-year" maxlength="4" name="story-year" value="1963"/><br />
+                        <a href="#" onclick="submitStory();" class="btn btn-primary btn-large">Verstuur</a>
+                    </form>
+                </span>
+            </span>
+        </div>
     </body>
 </html>

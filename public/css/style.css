@@ -1,0 +1,84 @@
+﻿body { 
+}
+
+#tiles {
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    overflow:hidden;
+}
+
+#header {
+    position: absolute;
+    top:0px;
+    background-color:rgba(0,0,0,0.5);
+    color:white;
+    width:100%;
+    height:60px;
+    border-bottom:10px solid rgba(255,255,255,0.75);
+}
+
+.userName {
+}
+#register {
+    position:absolute;
+    margin-top : 100px;
+}
+#TileDialog {
+    position:absolute;
+    top:100px;
+    height:500px;
+    margin-left:25px;
+}
+
+#photoCanvas { 
+    border:1px solid gray;
+    height:400px;
+    
+}
+.date-input-day {
+    width:30px;
+}
+
+.date-input-month {
+    width:30px;
+}
+
+.date-input-year {
+    width:60px;
+}
+
+#photoCanvas {
+}
+.newStory {
+    width:100%;
+}
+
+#stories {
+    margin-left:0px;
+}
+
+#stories > li {
+    list-style: none;
+}
+
+
+story-title {
+    font-size:1em;
+    color:#000;
+}
+story-main {
+    font-size:0.9em;
+    color:#333;
+}
+.story-author {
+    font-size:0.8em;
+    font-style:italic;
+    color:#333;
+}
+
+.thumb { 
+    max-height:80px;
+    padding-bottom:10px;
+}
