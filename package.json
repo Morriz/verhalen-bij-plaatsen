@@ -1,0 +1,38 @@
+{
+    "name":"verhalen-bij-plaatsen",
+    "description":"Alle verhalen zijn gebonden aan een of meerdere plaatsen. Voeg je verhaal toe aan historisch beeldmateriaal en nodig anderen uit dat ook te doen.",
+    "version":"0.0.1",
+    "homepage":"https://github.com/morriz/verhalen-bij-plaatsen",
+    "repository":{
+        "type":"git",
+        "url":"git://github.com/morriz/verhalen-bij-plaatsen.git"
+    },
+    "dependencies":{
+        "node-redis":"",
+        "connect-redis":"",
+        "redis":""
+    },
+    "keywords":[
+        "redis",
+        "socket.io"
+    ],
+    "engines":{
+        "node":">= 0.8.8"
+    },
+    "authors":[
+        {
+            "name":"Maurice Faber",
+            "email":"morriz@idiotz.nl",
+            "url":"http://www.idiotz.nl"
+        },
+        {
+            "name":"Johan Adriaans",
+            "email":"johan@izi-services.nl",
+            "url":"http://www.izi-services.nl"
+        },
+        {
+            "name":"Jack van der Eijk",
+            "email":"jvandereijk@gmail.com"
+        }
+    ]
+}
