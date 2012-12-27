@@ -56,6 +56,19 @@ $(function(){
   // Setup refresh event
   canvas.bind( "refresh", function () { fill(); } );
 
+  canvas.bind( "search", function ( event, city ) {
+    function onError (err) {
+      console.log('ERROR:');
+      console.dir(err);
+    }
+    $.jsonRPC.setup({
+      endPoint: '/rpc'
+    });
+    $.jsonRPC.req('images.get', [city, 10], function (result) {
+      console.log( result );
+    }, onError);
+  } );
+
   function renderTile( xpos, ypos, index )
   {
     var url = images[Math.floor(Math.random()*images.length)];
