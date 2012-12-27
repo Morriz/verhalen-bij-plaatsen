@@ -8,14 +8,13 @@
         <script src="js/default.js"></script>
         <link href="css/style.css" rel="stylesheet" />
         <script src="js/tiles.js"></script>
-        <script src="js/jquery/jquery.jsonrpc.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="tiles"></div>
 
         <div id="header">
             <span class="row">
-                <span class="span6 offset3">
+                <span class="span9">
                     <h2 >Verhalen bij plaatsen</h2>
                 </span>
                 <span class="span3 hide" id="account"><br />                  
@@ -33,9 +32,9 @@
 
         <div id="register" class="hide" >
             <form id="registerForm">
-                <span class="row ">
+                <span class="row">
                     <span class="span6 offset3">
-                        <div class="hero-unit ">
+                        <div class="dialog ">
                             Wat is uw naam:<br />
                             <input type="text" name="name"  value="Karel"/><br />
                             Wat is uw email:<br />
@@ -53,35 +52,46 @@
                         </div>
                     </span>
                 </span>
-                
             </form>
-
         </div>
 
-        <div id="main" class="hide">
-            
-        </div>
 
-        <div id="TileDialog" class="hide hero-unit">
-                
+        <div id="TileDialog" class="hide dialog">
+            <a href="#" onclick="closeTileDialog();" class="btn btn-small closeButton">Sluiten</a>
             <span class="row">
                 <span class="span4">
-                    <ul id="stories"><li class="nostoriesyet">Er zijn nog geen verhalen bij deze foto</li></ul>
+                    <div class="scroller">
+                        <ul id="stories"><li class="story-none">Er zijn nog geen verhalen bij deze foto</li></ul>
+                    </div>
                 </span>
                 <span class="span6">
                     <img class="thumb pull-right" src=""/>
                     <form id="storyForm">
                         <p>Vertel uw verhaal:</p>
-                        <input type="text" name="title" placeholder="Titel"/><br />
+                        <input type="text" name="title" placeholder="Titel" maxlength="80"/><br />
                         <textarea rows="10" cols="100" class="newStory" name="newStory" placeholder="Schrijf hier uw verhaal"></textarea><br />
                         Wanneer speelde dit verhaal zich af ?<br />
                         <input type="text" class="date-input-day" maxlength="2" name="story-day" value="27"/>/
                         <input type="text" class="date-input-month" maxlength="2" name="story-month" value="12"/>/
                         <input type="text" class="date-input-year" maxlength="4" name="story-year" value="1963"/><br />
-                        <a href="#" onclick="submitStory();" class="btn btn-primary btn-large">Verstuur</a>
+                        <a href="#" onclick="submitStory();" class="btn btn-success">Verstuur</a>
                     </form>
                 </span>
             </span>
+        </div>
+
+        <div id="StoryDialog" class=" hide dialog">
+            <a href="#" onclick="closeStoryDialog();" class="btn btn-small closeButton">Sluiten</a>
+            <span class="row">
+                <span class="span12">
+                    <div class="fullStory">
+                    <div class="story-title"></div>
+                    <div class="story-main"></div>
+                    <div class="story-author"></div>
+                    </div>
+                </span>
+            </span>
+            
         </div>
     </body>
 </html>
