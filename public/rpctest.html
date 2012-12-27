@@ -18,10 +18,7 @@
             $.jsonRPC.setup({
               endPoint: '/rpc'
             });
-            $.jsonRPC.req('images.get', ['rotterdam', 10], function (result) {
-              debugger;
-            }, onError);
-            $.jsonRPC.req('images.get', ['rotterdam', 10], function (result) {
+            $.jsonRPC.req('stories.create', ['55b3bcf6-5b54-7510-1eba-8703b42d2cd5', 'verhaaltje'], function (result) {
               debugger;
             }, onError);
 
