@@ -1,4 +1,4 @@
-﻿body { 
+body { 
 }
 
 #tiles {
@@ -7,6 +7,16 @@
     position: absolute;
     top:0px;
     overflow:hidden;
+}
+
+.dialog {
+    background-color:rgba(255,255,255,0.95);
+    border:10px solid rgba(0,0,0,0.5);
+    padding:25px;
+}
+
+.closeButton {
+    margin:-35px -25px 0px 20px;
 }
 
 #header {
@@ -28,9 +38,19 @@
 #TileDialog {
     position:absolute;
     top:100px;
-    height:500px;
+    height:450px;
     margin-left:25px;
+    z-index:50;
 }
+
+#StoryDialog {
+    position:absolute;
+    top:100px;
+    height:550px;
+    margin-left:25px;
+    z-index:60;
+}
+
 
 #photoCanvas { 
     border:1px solid gray;
@@ -63,12 +83,25 @@
     list-style: none;
 }
 
+.story {
+    margin-left:0px;
+}
 
-story-title {
+.story > li {
+    list-style: none;
+}
+
+.story-none {
+    font-size:0.8em;
+    font-style:italic;
+    color:#333;
+}
+.story-title {
+    padding-top:20px;
     font-size:1em;
     color:#000;
 }
-story-main {
+.story-main {
     font-size:0.9em;
     color:#333;
 }
@@ -81,4 +114,13 @@ story-main {
 .thumb { 
     max-height:80px;
     padding-bottom:10px;
+}
+
+.scroller {
+height:400px;
+overflow:auto;
+}
+
+.fullStory {
+font-size:1.4em;
 }
