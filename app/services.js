@@ -46,11 +46,12 @@ var reg = /<reproduction.reference>[a-f0-9-]*<\/reproduction.reference>/gi
     },
     stories:{
       get:function (args, options, callback) {
-        var packet = utils.createMyRedisPacket('images', args[0], null, callback);
+        var packet = utils.createMyRedisPacket('stories', args[0], null, callback);
         myRedis.read(null, packet);
       },
       create:function (args, options, callback) {
-        var packet = utils.createMyRedisPacket('images', args[0], null, callback);
+        var packet = utils.createMyRedisPacket('stories', args[0], null, callback);
+        packet.model.story = args[1];
         myRedis.create(null, packet);
       }
     }

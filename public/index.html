@@ -44,7 +44,7 @@
                             <input type="text" class="date-input-month" maxlength="2" name="birth-month" />/
                             <input type="text" class="date-input-year" maxlength="4" name="birth-year" /><br />
                             Wat is uw geboorteplaats:<br />
-                            <input type="text" name="birth-place" value="Utrecht"/><br />
+                            <input type="text" name="birth-place" value="Utrecht" onchange="$('#tiles').trigger('search', this.value);"/><br />
                             Wat is uw huidige woonplaats:<br />
                             <input type="text" name="city" /><br />
                             <br />

@@ -7,7 +7,7 @@ $(function(){
 
   /* Config */
   var canvas = $("#tiles");
-  var xtiles = 4;
+  var xtiles = 7;
   var ytiles = 4;
 
   // Example event listeners
@@ -64,8 +64,12 @@ $(function(){
     $.jsonRPC.setup({
       endPoint: '/rpc'
     });
-    $.jsonRPC.req('images.get', [city, 10], function (result) {
-      console.log( result );
+    $.jsonRPC.req('images.get', [city, 50], function (result) {
+      images = [];
+      $.each( result, function ( i, value ) {
+        images.push( "http://images.memorix.nl/rce/thumb/400x400/" + value + ".jpg" );
+      } );
+      fill();
     }, onError);
   } );
 
